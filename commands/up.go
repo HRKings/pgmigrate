@@ -2,15 +2,15 @@ package commands
 
 import (
 	"fmt"
+	"github.com/urfave/cli/v2"
 
 	"github.com/HRKings/pgmigrate/utils"
-	"github.com/urfave/cli/v2"
 )
 
 var UpCommand = cli.Command{
 	Name:        "up",
 	Description: "Executes the migration up",
-	Action: func(*cli.Context) error {
+	Action: func(ctx *cli.Context) error {
 		lock, err := utils.GetLastMigration()
 		if err != nil {
 			return err
